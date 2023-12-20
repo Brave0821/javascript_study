@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>자바스크립트 변수</title>
+</head>
+<body> <!-- 버튼 타입 범용  js를 부르려면 범용 -->
+    <button type="button" onclick="order()">밥 주세요 :D</button>
+    <button type="button" onclick="abcResult()">변수 a, b, c의 값</button>
+    <button type="button" onclick="brave()">연습</button>
+    <script>
+        // 내부 js 
+        /* 
+        1. 목표 설정 밥 주세요 클릭 시 - > 오늘의 밥과 반찬이 나옴. - >  
+        2. 절차 준비. 밥주세요 클릭 시 데이터 출력 ( var )
+        3. 필요 데이터 체크 : 버튼 오늘의 반찬 밥 데이터 선언
+        4. 재사용에 필요한 대상 체크 : 함수
+        5. 밥 반찬이 반복된다 (함수로 만들기)
+        */
+        var bowl = "쌀밥";
+        var side = "김";
+
+        var a;
+        console.log(a); // undefind
+        a = 1;
+        console.log(a); //1 
+        a = 2;
+        console.log(a); //2 
+        var b = a;
+        console.log(b);
+
+        var c = a + b;
+        console.log(c);// 2+2=4 
+
+        // 연습
+        var z;
+        z = 10;
+        var e; 
+        e = 20;
+        var k = z+e;
+        console.log(k) // z(10) + e(20) = k(30)
+
+        // 연습2 
+
+        var f;
+        f = 100;
+        var g;
+        g = 100;
+        
+        var h = f+g;
+
+        console.log(h); // 200
+
+    
+        function brave() {
+            console.log(z);
+            console.log(e);
+            console.log(k);
+        }
+
+        /* let const는 재선언 불가능. */
+        // 쌀밥을 bowl에 넣어서  - > 콘솔에 넣은 bowl 넣으면 넣은 값이 나온다.
+        function order(){
+            console.log(bowl);
+            console.log(side);
+        };
+// ..........................................................
+
+        function abcResult(){
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        } //  이 함수를 부르려면 위에 변수명을 위에 넣기
+
+        /* 
+        <변수 OX>
+        1. var 3bowl; x
+        2. var bowl; o 
+        3. var var; x
+        4. var var1; o 지만 추천안함
+        5. var &test; x 
+        6. var $test; o    
+        */
+
+
+    </script>
+</body>
+</html>
+<!-- 콘솔창의 콘솔은 객체 -->

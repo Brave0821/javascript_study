@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>변수-3</title>
+</head>
+<body>
+    <button type="button" onclick="adultFunc()">인원 수 추가하기</button>
+    <button type="button" onclick="plusd()">ab플러스</button>
+    <script>
+        /* 1. 목표 : 인원 수 추가하기 버튼을 클릭하면 성인 1에서 클릭할떄마다 
+        1ㅣ씩 증가하면서 인원 수 추가 */
+        /* 2. 데이터 : 버튼, 기본값(1), 추가값(2) */
+        var defaultAdult = 1; // 기본값
+        var plusAdult = 1; // 추가값
+        // var plus = defaultAdult + plusAdult;
+        
+        // adultFunc 함수약자
+        function adultFunc(){
+            console.log(defaultAdult)
+            defaultAdult = defaultAdult+plusAdult;
+            // console.log(plus);
+            // console.log(defaultAdult+plusAdult);
+        };
+
+        // 연습하기
+        
+    //     var basic = 1;
+    //     var plus = 1;
+        
+    //     function plusd(){
+    //         console.log(plus) 
+    //         basic = basic + plus;
+    //     }
+    // </script>
+</body>
+</html>
