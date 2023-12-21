@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>let, const</title>
+</head>
+<body>
+    <button type="button" onclick="click_rice()">밥 주세요 :D</button>
+    <hr>
+    <button type="button" onclick="get_button()">구입하기</button>
+    <script>
+        // 버튼을 클릭하면 출력 
+        // 오늘의 밥 콩밥 반찬 스팸
+
+        let rice ="콩밥"
+        let spam = "스팸"
+        let brave = "???"
+
+        function click_rice(){
+            console.log("오늘의밥은"+rice+"이고"+spam+"입니다.");
+            // console.log(spam);
+        };
+
+        // 구입한 붕어빵의 수량은 2개고 가격은 총 2000원입니다.
+
+        let product = "붕어빵"
+        let place = 1000;
+        let num = 1;
+
+        function get_button(){
+            num += 1;   
+            console.log("구입한" +product+ "의 수량은"+num+"개고  가격은"+(place*num)+"입니다.");
+            // console.log(product)
+        };
+        
+
+        /* 
+            function adultFunc(){
+            console.log(defaultAdult)
+            defaultAdult = defaultAdult+plusAdult;
+        
+        */
+    </script>
+</body>
+</html>
