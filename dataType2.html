@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>데이터 타입-2</title>
+</head>
+<body>
+    
+    <script>
+        let a = 1;
+        let b = "1";
+        let c;
+        console.log("a변수의 값은?" +a);
+        console.log(`a 변수의 값은 ${a}`); /* 백틱기호 */
+        // a 변수의 데이터 종류는 000, b데이터 타입은 000, c 데이터 타입은 000
+        console.log(`a 변수의 데이터 타입은 ${typeof a},b의 데이터 타입은 ${typeof b}, c의 데이터 타입은 ${typeof (c)} 입니다.`);
+        // a+b 변수를 묶은 데이터 타입은 000
+        // a+c 변수를 묶은 데이터 타입은 000
+        console.log(`a+b의 변수를 묶은 데이터 타입은 ${typeof (a + b)}`);
+        console.log(`a+c의 변수를 묶은 데이터 타입은 ${typeof (a + c)}`);
+        // console.log(`a+b의 변수를 묶은 데이터 타입은 ${typeof a + typeof b}`);
+        // console.log(`a+c의 변수를 묶은 데이터 타입은 ${typeof a + typeof c}`);
+        console.log("----------------------------------------------------------")
+        // 오늘의 총지출을 표시해주는 가계부 앱 만들기.
+        // 커피를 1500원, 도시락 6천원, 전철 2천원 - > 총 지출액은? 
+        // , 문자로 인식
+        let coffe = 1500;
+        let rice = 6000;
+        let car = 2000;
+        let total = coffe + rice +car;
+        console.log(`오늘의 총 지출액은 ${(total)} 입니다.`);
+        console.log(`오늘의 총 지출액은 ${(coffe + rice + car)} 입니다.`);
+        // function(button){
+        //     console.log()
+        // }
+        console.log("------------------------------------------------------------")
+        let dan99 = 2;
+        console.log(`구구단 계산기 값을 입력해주세요 :D`)    
+        console.log(`${dan99 * 2}`);
+        console.log(`${dan99 * 3}`);
+        console.log(`${dan99 * 4}`);
+        console.log(`${dan99 * 5}`);
+        console.log(`${dan99 * 6}`);
+        console.log(`${dan99 * 7}`);
+        console.log(`${dan99 * 8}`);
+        console.log(`${dan99 * 9}`);
+        console.log("------------------------------------------------------------")
+        // 이번 달이 몇월일까요? 
+        let now = new Date(); // 년 월 일 시 
+        console.log(now);
+
+        let mon = now.getMonth()+1; // 1을 추가해주면 
+        let day = now.getDate(); // 1부터 인식
+        let ye = now.getFullYear(); // 2023년 
+        console.log(mon, day, ye);
+        // 0부터 시작해서 0=1월 
+        // 11 = 12월 
+        // console.log(`이번 달은`)
+        // 오늘은 몇월 몇일 입니다.
+        console.log(`오늘은 ${mon}월 ${day}일 입니다.`);
+        // 이렇게도 가능하다.
+        console.log(`오늘은 ${now.getMonth()+1}월 ${now.getDate()}일!`);
+        console.log("--------------------------------------------------")    
+        // 배열 (같은 주제 기준 데이터가 2개 이상)     
+        // 배열을 사용 x 
+        let color1 = "red";
+        let color2 = "blue";
+
+        console.log(color1,color2);
+        
+        // 배열 사용 :D
+        // 배열의 인덱스(순서)는 0부터 시작한다.
+        // 배열의 문자열 길이는 1부터 시작한다. 
+        let colorSet = new Array("red","blue");
+        // let colorSet = ["red","blue","black","green"];
+        // let colorSet = new Array(4);
+        console.log(colorSet);
+        console.log(colorSet[0]); // 배열 호출 인덱스명 red; 호출 방법은 1개 생성은 3개 
+        console.log(colorSet[1]); // blue
+        console.log("--------------------------------------------------------------")
+        // 배열 기초 연습 
+        /* 흰색 , 검은색, 초록색 , 노랑색 , 파랑색 , 빨강색, 보라색을 배열로 저장하고 
+        그 중 좋아하는 색상 4개를 골라서 콘솔에 출력하기 */
+
+        let colorMaster = new Array("흰색","검은색","초록색","노랑색","파랑색","빨강색","보라색");
+            
+        console.log(colorMaster[2],colorMaster[3],colorMaster[0],colorMaster[4]);   
+        console.log(colorMaster[3]+colorMaster[4]);
+        
+        console.log("----------------------------------------------------------------------")
+        // 2번 fruitList 변수명
+        // 좋아하는 과일 5개
+        //fruitList 나열하기
+        console.log("과일을 나열해주세요 :D")     
+        let fruitList = new Array("오렌지","바나나","포도","사과","파인애플");
+        console.log(fruitList[4],fruitList[3],fruitList[2],fruitList[1],fruitList[0]);
+        console.log("----------------------------------------------------------------------")
+        // 역순으로 배치
+    </script>
+</body>
+</html>
+<!-- `` 백틱 기호로 묶어주면 된다.
+    1+1은 + (1+1) + 입니다. -> `1+1은 ${1+1} 입니다.`
+    중간에 ++ 안 붙여줘서 편해진다.
+
+array 배열 
+
+- 2개 이상의 데이터를 변수에 저장하는 방법 - > 배열 
+- col1 = red  
+- col 2=  blue
+- > red, blue 둘 다 저장가능하다.
+
+let 변수명 = [배열,배열,배열...]
+let 변수명 = newArray(배열,배열,배열...)
+let 변수명 = newArray(3)
+변수명 [index], 0부터 인식 
+
+-->

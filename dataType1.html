@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>데이터 타입1</title>
+</head>
+<body>
+    
+    <script>
+        let a =  10; /* a 생성 10 좌측에 대입 */
+        /* let a = "10";  string  문자열 */ 
+        /* a 생성 10 좌측에 대입 */
+        let b = 5; 
+        console.log(a);
+        console.log(typeof a); // number 
+        console.log(typeof(a)); // 2개 이상의 데이터를 비교 확인할 때 ()
+        console.log(typeof(a+b)); // a+b 타입 연결 더하기 연산자
+        console.log(typeof (a*b)); // 변수만 넣어야한다. 숫자 x 변경 시 적용이 되기에
+        console.log(typeof b, a); // , 콘마 - > ~와 그리고 나누는 느낌으로 사용 
+        console.log(typeof a, typeof b); // 따로 타입 확인하기
+        // a의 데이터 타입은 000다.
+        console.log("a의 데이터 타입은" + typeof +a+"입니다.");
+        console.log("b의 데이터 타입은" + typeof +b+"입니다.");
+        console.log("---------------------------------------------------------------");
+        let c = "javascript";
+        let d = "3.14";
+        console.log(typeof c); // string
+        console.log(typeof d); // number
+        console.log(typeof(a+d)); 
+        // 계산 못하니까 숫자 10까지 문자로 숫자 + 문자 = 문자
+        // 숫자 + 숫자 = 숫자 
+        // 문자 + 문자 = 문자 
+        // 숫자 + 문자 + 숫자 = 문자 
+        console.log(1 + "1"); // 11 
+        console.log(typeof (1+"1")); // string
+        // "" 문자 숫자로 나눠진 이유.
+        // 계산을 위해서 숫자 문자 구분. 1 + 1 = 2 인데 11됨 문자면 
+        console.log("-----------------------------------------");
+        let e = ""; // 빈 문자를 e에 담음.
+        let f
+        console.log(typeof e); // "" 도 문자열
+        console.log(typeof f); // 정의하지않음. 
+        /* console.log(typeof g); */ // console.log(g); error 존재하지 않음.  
+        // undifind 정의되지않음 (의도적이지 않음)
+        // null 값이 비어있다. (의도적으로 )
+        let g = 1;
+        console.log(g+a);
+        console.log(g-b);
+        g = 0; // 0을 넣어주면서 초기화한다.
+        g = null; // null 값을 의도적으로 비운다. 값이 존재하는 변수 값을 제거해야할떄 
+        console.log(g);
+        console.log(typeof g); // null 은 객체 object
+        console.log(typeof (a+null)); // number 
+        console.log(typeof (b+undefined)); // number
+
+        // var let const 데이터 타입 - > 없음 
+        /* var let const에 대입되는 값에따라 데이터가 결정된다.
+        
+        */
+    </script>
+</body>
+</html>
+<!-- 
+    원시타입 : 
+        숫자 문자열 논리값 등 데이터구성 기본값
+
+    객체타입 : 
+        참조 타입에 따라 할당되는 복합 데이터 타입
+        array, function, dom 등 복합대입연산자(여러 개 사용해서) 
+        tag id class 등등 
+
+        1. 데이터 타입 연산자
+        typeof 데이터;
+        typeof(데이터);
+
+        2. 숫자 데이터 
+        64비트 부동소수점으로 표현 - > 32비트보다 정밀도? 더 높은 값 
+        - 수학연산, 비교연산, 조건문, 반복문 둥 정밀도 높은 계산에 활용 
+        - c, c#, java, python 등등 
+        var a = 123.456;
+
+        3. 문자 데이터 
+        16비트 유니코드(UFT-16) 전세계 사용 문자 대부분 표현 가능 
+        작은따옴표("") 큰 따옴표("") 문자열의 앞 뒤에 붙여서 표현합니다.
+        3.14, JS 문자 데이터
+        
+        4. 특수 데이터
+        null 값이 없음  null은 의도적으로 선언
+        undefinde 정의되지 않음 ex) img -> ing
+        의도적이지 않은 경우 
+    -->
