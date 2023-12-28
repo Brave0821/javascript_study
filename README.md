@@ -101,3 +101,55 @@
 *  
 * window.open(url,target, features) 새로운 창을 열거나 새 탭을 생성하는 메서드
 -----------------------------------------------------------------------------------------------------------------------
+### 12/28 
+* dom트리를 구성하는 객체 - > 노드 
+* html요소를 가리키는 객체 - > html요소 노드 
+* 텍스트를 가리키는 객체 - >텍스트 노드 
+* 탭, 공백, 줄바꿈 - > 공백 노드 
+*  공백도 노드로 인식함 
+* --------------------------------------------------------------------------------
+* <h1>row</h1> - > html노드
+* getElementsByTagName 
+* 지정된 태그 이름을 가진 모든 Html 요소를 찾아 html 노드로 반환
+* p , h1 , div , input - > 여러 개 등장하기에 s 붙음  getElements
+* 
+* 
+### dom 돔
+*  const h1Tag = document.getElementsByTagName("h1")[0]; // 방법1 선언 [0]; h1이 딱 하나면 여기
+*  // const h1Tag = document.getElementsByTagName("h1")[1]; // 방법1 선언 [0];
+*  console.log(h1Tag);
+*  // 방법2 호출 console.log(h1Tag[0]); h1 즉 적용대상이 변수자체는 여러 개 호출할때 여러개면 이렇게 호출하는게 좋다.
+*  // getElements 여러 개니까 css랑 닮았다.
+
+------------------------------------------------------------------------------------------------------------------
+### index 붙일 때 
+
+*    *(1개만 동적인 기능이 적용)* -> getElementsByTagName("h1")[0] 
+*    
+*    *(여러 개에 동적인)* -> onsole.log(h1Tag[0]); 
+* 
+-------------------------------------------------------------------------------------------------------------------
+### dom id
+
+*  getElementById 
+*  지정된 아이디 이름을 가진 모든 html 요소를 찾아 html 노드로 반환합니다.
+
+# querySelector, querySelectorAll이랑 value랑 number 
+
+### value 
+*  form 태그에 삽입되는 값 속성(input, option, select, button, textarea)
+*  form 태그 내에 작성했을 땐 미리 입력된 값 표현 가능 
+*  javascript의 DOM. 속성 `ex)DOM.value` 로 처리했을 땐 해당 DOM의 미리 입력된 값부터 사용자가 입력하는 신규 값 까지 모두 인식할 스 있다.
+
+1. 쇼핑몰의 상품 수량 
+2. 쇼핑몰의 총 주문 가격   
+3. 예약페이지의 여행 인원 수 등등...
+
+* 주의사항 - > VALUE속성은 form전용이므로 다른 태그일때 해당 값을 알고 싶다면 다른 속성 및 메서드를 사용해야한다.
+* 주의사항 -> `DOM.value`로 값 처리 시 숫자를 쓰더라도 문자열(string)으로 인식하기 때문에 필요한 경우 `Number()`에서드를 활용해 (Number)
+  데이터 타입으로 변환해야한다. ex `Number(객체.value())`
+
+*  querySelector, querySelectorAll이랑 value랑 number 
+* `console.log(textInput.value) `
+* `console.log(Number(numInput.value)+1)`
+*  `-` 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>dom</title>
+</head>
+<body>
+    <form action="#" method="get" id="orderNum">
+        <input type="number" name="num" id="num" value="0">
+        <button type="button" id="numBtn" onclick="fun_plus()">+</button>
+    </form>
+<!--  -->
+    <form action="#" method="#" id="order">
+        <input type="text" name="text" id="text" value="입력하세요">
+        <input type="number" name="number" id="number">
+        <button type="button" id="btn" onclick="func1()">click!</button>
+    </form>
+    <!-- 버튼을 누르면 콘솔에 출력하게 만들기. dom4 -->
+    <!--  -->
+    <h1 id="main_title" class="title">DOM-1</h1>
+    <h1 id="sub-title"  class="title list">DOM-2</h1>
+    <p>돔돔돔</p>
+    <ul id="list_wrap">
+        <li class="list"><a href="#">link1</a></li>
+        <li><a href="#">link2</a></li>
+        <li class="list"><a href="#">link3</a></li>
+    </ul>
+    <nav>
+        <ul class="gnb">
+            <li><a href="#">menu1</a>
+                <ul class="lnb">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">menu2</a>
+                <ul class="lnb">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="title">
+            <a href="#">제목1</a>
+            <a href="#">제목2</a>
+        </div>
+        <div id="contents">
+            <a href="#">내용1</a>
+            <a href="#">내용2</a>
+        </div>
+    </div>
+    <!-- <script src="./script/dom1.js"></script> -->
+    <!-- <script src="./script/dom2.js"></script> -->
+    <!-- <script src="./script/dom3.js"></script> -->
+    <!-- <script src="./script/dom4.js"></script> -->
+    <!-- <script src="./script/dom_type1.js"></script> -->
+    <script src="./script/dom_type2.js"></script>
+</body>
+</html>
+<!--   *(1개만 동적인 기능이 적용)*
+    - > getElementsByTagName("h1")[0] 
+
+    *(여러 개에 동적인)*
+    - > onsole.log(h1Tag[0]);  -->

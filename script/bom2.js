@@ -53,3 +53,5 @@ function func2(){ /* 옛날에 많이 씀. */
     window.open("https://google.com","_blank","width=500, height=300");
     window.open("https://google.com","_blank","width=500, height=300");
 };
+
+//  
