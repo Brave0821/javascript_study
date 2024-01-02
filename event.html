@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>DOM 이벤트 처리기</title>
+    <style>
+        /* 버튼 타입은 자유롭게 꾸미기 */
+        .box {
+            /* display: flex; */
+            flex-flow: row nowrap;
+        }
+
+        .box button {
+            border: 1px solid #000;
+            border-radius: 25%;
+            width: 50px;
+            height: 50px;
+            /* margin-right: 10px; */
+            background-color: #000;
+            color: #fff;
+        }
+
+        .box button:hover {
+            opacity: 2.7;
+        }
+
+        .box button h1 {}
+    </style>
+</head>
+
+<body>
+    <div class="box"> <!-- div 주는 목표 한번에 정렬 및 구분  -->
+        <button type="button" id="btn1">chick box1</button>
+        <button type="button" id="btn2">click box2</button>
+        <button type="button" id="btn3">구글 GO</button>
+        <h1>본인인증</h1>
+        <form action="#" method="post">
+            <input type="text" id="certified_txt" placeholder="인증번호입력!">
+            <button type="button" id="certified_btn">인증확인</button>
+        </form>
+        <h1>직장인 수입 계산기</h1>
+        <form action="#" method="get">
+            <input type="text" id="result1" placeholder="이번 달 월급 입력">
+            <input type="text" id="result2" placeholder="이번 달 보너스 입력">
+            <button type="button" id="answer_btn">총 수입 보기</button>
+        </form>
+        <h1>이자 100원 주는 자바스크립트 은행 :D</h1>
+        <form action="#" method="get" id="bank">
+            <input type="text" id="bank_input" placeholder="입금액">
+            <input type="text" id="bank_total" placeholder="총잔액" readonly>
+            <!-- readonly 읽기 전용 입력 x -->
+            <button type="button" id="bank_btn">입급하기</button>
+        </form>
+    </div>
+    <p>box! :D</p>
+    <!-- <script src="./script/event1.js"></script> -->
+    <script src="./script/event2.js"></script>
+</body>
+
+</html>
