@@ -1,0 +1,62 @@
+.scale {
+    background-color: #f1f1f1;
+    border: 1px solid #000;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 30px 10px;
+    margin-top: 100px;
+
+}
+.scale h1 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 29px;
+}
+.scale p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 23px;
+}
+/* 키 몸무게 목표 시작. */
+.scale ul {}
+.scale ul li {
+    font-weight: bold;
+}
+.scale ul li #height { 
+    margin-bottom: 10px;
+    font-weight: bold;
+    height: 25px; width:150px;
+}
+.scale ul li #weight { 
+    margin-bottom: 10px;
+    font-weight: bold;
+    height: 25px; width: 180px;
+}
+.scale ul li #goals {
+    height: 25px;
+    font-weight: bold;
+    width: 30px;
+}
+/* 결과보기 버튼. */
+.scale #result_btn {
+    border: 1px solid #000;
+    width: 100px;
+    height: 25px;
+    /* margin-right: 10px; */
+    background-color: #000;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px 1px black;
+    margin-bottom: 10px;
+}
+
+
+.scale #result_btn:active {
+    box-shadow: none;
+}
+/* https://comizle.tistory.com/43#google_vignette
+버튼 눌렀을때 효과주기.
+
+*/
+

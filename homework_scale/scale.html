@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>체중계</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/scale.css">
+</head>
+<!-- # 적정 체중 구하는 계산기 만들기
+
+계산식) **적정체중 = (본인신장-100)*0.9**
+
+변수명 예) **userHeight, userWeight, goals, result, normal_w**
+
+- +CSS 디자인은 심미적으로 자유롭게 표현하세요.
+- 현재 키와 몸무게를 자유롭게 입력하고
+- 버튼을 눌렀을 때 최종 목표 칸에 메세지 출력하기
+
+최종목표 **결과예시) 적정체중은 ?kg이며 ?kg 초과되셨습니다.** -->
+<body>
+    <div class="scale">
+        <h1>다이어트 체중계 :D</h1>
+        <p>당신의 건강몸무게를 알아보세요.</p>
+        <ul>
+            <li>현재 키 : <input type="text" id="height" placeholder="키를 입력해주세요">cm</li>
+            <li>현재 몸무게 : <input type="text" id="weight" placeholder="몸무게를 입력해주세요">kg</li>
+            <li>최종 목표 : <input type="text" id="goals"></li>
+        </ul>
+        <button type="button" id="result_btn">결과보기</button>
+    </div>
+    <script src="./script/scale.js" defer></script>
+</body>
+
+</html>
