@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>관계 활용 속성과 메서드</title>
+    <style>
+        #frm {
+            background-color:#eee; width:450px; padding: 10px 20px;
+            border-radius:10px; margin:50px auto;
+            display:flex; flex-flow: column nowrap;
+        }
+        #frm > * {margin-bottom: 10px;}
+        #frm span input {
+            display: block; padding: 5px;
+            width: 100%; box-sizing:border-box;
+            margin-bottom: 5px;
+        }
+        #frm .error{
+            color: #f00; font-weight: 700;
+            font-size: 13px;
+            line-height: 15px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="./homework_scale/style/reset.css"> -->
+</head>
+<body>
+    <form action="#" method="get" id="frm">
+        <span>
+            <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요">
+            <input type="password" name="userPw" id="userPw" placeholder="비밀번호를 입력하세요">
+        </span>
+        <span class="error"></span>
+        <button type="button" id="loginBtn">로그인</button>
+    </form>
+    <script src="./script/relationship_edit_1.js"></script>
+</body>
+</html>

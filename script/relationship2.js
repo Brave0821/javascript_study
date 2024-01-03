@@ -15,7 +15,7 @@ console.log(headerChild[3].innerHTML);
 console.log("-------------------------------2---------------------------------")
 /* 
 console.log(headerChild[3].innerHTML); 
-<a href="#">menu1</a>
+<a href="#">menu1</a>\
 <a href="#">menu2</a>
 .innerText는 속성이므로 그냥 쓰면 출력 x - > 
 */
