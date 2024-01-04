@@ -176,12 +176,30 @@
 * <1월 3일 자식 노드 제어하기>
 * childNodes, children, childElementCount
 *  brave 표시 넣음 ctrl + f
-*
-*
-*
-*
-*
-*
-*
-*
-*
+--------------------------------------------------------------------------------------------
+ innerHTML - > 속성이고 앞에 객체가 필요함. 뒤에는 대입연산자 = 필요 
+`객체.innerHTML;` - > 특정 객체에 자식 자손에 해당하는 HTML을 읽는 것 
+`객체.innerHTML = 값;` - >  HTML 삽입 및 변경
+ html 태그 사용가능 
+
+ innerText - > 화면에 보여줌?
+`객체.innerText;` 객체의 자식, 자손 텍스트 노드 읽기 (HTML X)
+`객체.innerText= 값;` - ? 텍스트 노드 삽입 및 변경 (HTML x)
+
+# appendChild 
+메서드니까 앞에 객체 와 속성이 들어갈 수 있다.
+
+객체.속성.appendChild() 메서드는 항상 맨 뒤에 
+객체.객체.appendChild()
+객체.속성.appendChild()
+갹체.속성.속성.appendChild()
+
+appendChild()? - > 객체의 마지막 자식 노드 위치에 `()` 괄호 안 값 추가.
+
+# createElement 
+메서드니까 앞에 객체 와 속성이 들어갈 수 있다.
+
+앞에 document를 가진다. 무조건. 
+`document.createElement()`
+요소 노드 js 내에서 동적인 용도로 생성할 경우 
+
