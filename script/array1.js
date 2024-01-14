@@ -10,6 +10,8 @@ console.log(`a = > ${a}`, `a의 type은 ${typeof a}`);
 // 피연산자를 2개이상 두었을때 괄호를 둔다.
 console.log(`b = > ${b}, b+a의 type은 ${typeof (b + a)}`);
 
+console.log(`b는 `)
+
 const alpa = ["ABC", "DEF"];
 console.log(`alpa배열의 값은 ${alpa}`);
 console.log(`배열은 0부터 시작하기 때문에 ABC를 출력하고 싶으면 ${alpa[0]}, DEF를 출력하고 싶으면 ${alpa[1]}`);

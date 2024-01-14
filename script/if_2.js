@@ -1,14 +1,27 @@
 // 1. 'admin' 아이디만 접근할 수 있는 페이지 
-let userId = "admin";
+/* let userId = "admin"; */
 let userPw="1234"
 
-if(userId == "admin") {
-    console.log("관리자님 어서오세요 :D")
-}
+const userLogin = document.querySelector("#userLogin")
+const userId = document.querySelector("#userId")
 
-if(userId == "admin" && userPw=="1234"){
+/* if(userId == "admin") {
+    window.alert("관리자님 어서오세요 :D")
+} */
+
+/* if(userId == "admin" && userPw=="1234"){
     console.log("관리자님 어서오세요:)")
-}
+} */
+
+userLogin.addEventListener("click",function(){
+
+    if(userId.value == "admin") {
+        window.alert("관리자님 어서오세요 :D")
+    } else {
+        window.alert("다시 로그인 해주세요")
+    }
+})
+
 
 /* 
 논리연산자 우선순위 
