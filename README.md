@@ -271,8 +271,66 @@ x == y , x === y xy는 같다. - > 참 다르면 거짓
 ### 부등연산자 
 x != y , x!==y  x와y가 다른가? 다른게 참 왜냐하면 다른걸 물어봤기에  같으면 거짓 
 
+------------------------------------------------------------------------------------------------
+# JS : CSS 클래스 활용 속성/메서드 오늘 배운 것 
+
+원래 방식 - > 
+
+dom.style.속성 = 값 
+(속성 ex color, display, background)
+
+배우는 방식 - > 
+
+.design_set1 { 
+  color
+  display
+  background
+}
+
+그럼 배우는 이유는?
+css 속성이 여러개라면 하나 하나 번거롭게 개별명령을 해야하는데 작성이 불편하고 힘들다.
+그래서 한번에 묶어서 적용한다.
+
+※ 주의할점! 
+우선순위에 따라 적용이 된다.
+// 우선순위 순서 : 인라인 > id > class > tag 
+
+ex) /* 우선순위가 밀린이유 :  .list li {border-bottom: 1px dashed darkgreen;} 클래스 + 태그를 가졌고  
+.design_set1 클래스만 가졌기에 밀림.  */ 참고하기 
 
 
+### DOM.classList.add('추가클래스명')
+
+`li[1].classList.add("design_set1", "design_set2)` 적용방식 
+`li[1].classList.remove("design_set1", "design_set2)` 삭제하기
+
+# 토글 기능 (보였다or안보였다.)
+
+// 버튼을 클릭 시 만들어둔 design_set1 이 적용되게 하려면?
+
+`btn.addEventListener("click", ()=>{
+    li[2].classList.toggle("design_set1")
+})`
+
+주의할점 만약 this를 li[2]대신 사용할 시 화살표 함수 사용하면 this가 안먹는다.
+
+### classList.add css 예시 
+li[5].classList.add("design_set1")
+ex) 6번째 li에 design_set1에 저장된 css를 적용한다.
 
 
-### 
+###  DOM.classList.replace('기존', '변경')
+
+`li[2].addEventListener("click",function(){
+    this.classList.replace("design_set1","design_set2")
+    // 버튼을 클릭 한 상태에서 design_set1 눌러줘야 design_set2 적용된다.
+})
+`
+### replace
+// 버튼을 클릭 시 design_set1 상태에서 design_set2 상태로 변경된다.
+
+
+### DOM.classList.contains(클래스 유무 확인)
+contains 조건문과 함께하는 함수이다. DOM.classList.contains(클래스 유무 확인)
+
+-------------------------------------------2교시 정리 끝--------------------------------------------------
