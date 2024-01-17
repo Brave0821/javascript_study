@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!-- 회원가입에 응용할 수 있는 정규표현식 페이지 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>RegEx(회원가입에 응용할 수 있는 정규표현식 페이지)</title>
+</head>
+<body>
+    <h3>정규표현식 페이지</h3>
+    <input type="text" id="userid" placeholder="아이디를 입력하세요">
+    <script>
+        const regex1 = /\d{3}-\d{4}-\d{4}/;
+
+        console.log(regex1.test("010-3333-3333")) // true
+        console.log(regex1.test("010-3333-33")) //false
+        console.log("=======================================================================")
+        const userid_input = document.querySelector("#userid")
+        console.log(userid_input)
+        // 아이디 영어만 입력가능 
+
+        userid_input.addEventListener("input",()=>{
+
+            if(!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(userid_input.value)){
+                alert("이메일을 다시 입력해주세요")
+            }
+            /*   if(!/^\d+$/.test(userid_input.value)){
+                alert("※ 숫자만 입력 가능합니다.")
+                userid_input.value =""
+            } */
+            /*if(!/^[a-zA-Z]+$/.test(userid_input.value)){
+                alert("영어만 입력해주세요")
+                console.log(userid_input)
+            } */
+        })
+
+        // 정규 표현식 RegEx
+        // "/" 정규표현식의 시작&끝
+        // let result1 = /좋아요|good/;
+
+        result = /별로|최악|비추/.test("구매하지 마세요. 진짜 별로에요!") // true
+        /* result = /별로/.test("구매하지 마세요. 진짜 좋아요!") false */
+        console.log(result) // true
+        
+        result = /fool/i.test("Im not a fool") // - > Fool 쓰면 false 나오는데 i.test 하면 대문자도 나옴 
+        console.log(result)
+        
+    </script>
+</body>
+</html>
+
+<!-- 
+    정규표현식 (Regular expression)은 문자열 패턴 매칭을 위한 도구
+    특정 규칙을 따르는 문자열을 검색하거나 변형하는데 사용합니다.
+
+    1. 아이디가 영어와 숫자로 이루어졌는가?
+    2. 비밀번호에 특수문자를 포함했는가
+    3. 이메일이 메일형식에 맞게 입력됐는가 
+    4. 이름이 한글로 입력되었는가?
+    5. 카드 비밀번호를 숫자로 입력했는가?
+
+    ("문자열").match(/정규표현식/플래그)
+        문자열에서 정규표현식에 일치하면 항목을 배열로 반환
+
+    (정규표현식).test("문자열") <많이씀>
+        문자열이 정규표현식과 일치하면 true, 아니면 false
+
+-->
