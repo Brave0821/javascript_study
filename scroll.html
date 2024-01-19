@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>scroll</title>
+    <style>
+        html, body, .bg { scroll-behavior: smooth;}  /* bg1.style = "scroll-behavior:smooth"; js에서 이거랑 같음 */
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .bg  {height: 100vh;}
+        .bg1 {background: wheat; position: relative;/* position: relative; 빼면 양옆에 버튼이 따라온다. */
+            width: 100%; overflow-x: auto; overflow-y: hidden;
+        }
+        .bg2 {background: teal;}
+        .bg3 {background: seagreen;}
+        .bg4 {background: salmon;}
+        #btn{
+            position: fixed; left: 5opx; top: 50px; z-index: 999;
+            padding: 20px; color:white; background: black; border-radius: 20px;
+        }
+        /* ------------------------가로스크롤 bg1-wrap */
+        .bg1 button {position: fixed; top:40%; transform: scale(2);} /* 버튼이 아래도 고정으로 따라온다. */
+        .bg1 #prev {left: 50px;}
+        .bg1 #next {right: 50px;}
+        .bg1 .wrap {width: max-content; display: flex;}
+        .bg1 .wrap .box {width: 1400px; height: 100vh;}
+        .bg1 .wrap .a {background: #555;}
+        .bg1 .wrap .b {background: #777;}
+        .bg1 .wrap .c {background: #999;}
+        .bg1 .wrap .d {background: #ddd;}
+        #top{z-index:999; position: fixed; bottom: 50px; right: 5opx; padding: 30px;}
+        /*  */
+        header {z-index:999; position:fixed; left: 0; top: 0; width: 100%;}
+        header h1 {height: 50px; background:rosybrown;}
+        header nav {height: 30px; background:seagreen;}
+
+    </style>
+    <!-- 오른쪽 누르면 1400 왼쪽 누르면  -->
+</head>
+<body>
+    <header>
+        <h1>로고</h1>
+        <nav>네비게이션</nav>
+    </header>
+    <button type="button" id="top">위로</button>
+    <button type="button" id="btn">버튼</button>
+    <div class="bg bg1">
+        <button type="button" id="prev">◀</button>
+        <button type="button" id="next">▶</button>
+        <div class="wrap">
+            <div class="box a"></div>
+            <div class="box b"></div>
+            <div class="box c"></div>
+            <div class="box d"></div>
+        </div>
+    </div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="bg bg4"></div>
+    <!-- <script src="./script/scroll-1.js"></script> -->
+    <script src="./script/scroll-2.js"></script>
+</body>
+</html>
