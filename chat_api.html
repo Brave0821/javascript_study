@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>chat</title>
+    <style>
+        * {box-sizing: border-box;}
+        html, body { background: grey; height: 300vh;}
+        .chat_bot {
+            background: seagreen;
+            width: 100px; height: 100px; padding: 20px;
+            border-radius: 50px;
+            position: fixed; right: 50px; bottom: 50px; z-index: 999;
+        }
+        .chat_bot  #robot {background: none; border: 0; cursor: pointer;}
+        .chat_bot  #robot img {width: 100%;}
+        .chat_bot span {
+            color: #fff; display: block; text-align: center;
+            font-weight: 700; font-size: 0.91rem;
+        }
+        /* 클릭 시 채팅화면 */
+        #chat_container{
+            background: white;
+            width: 400px; height: 600px;
+            display: flex; /* 안에 있는애들 밑으로  */
+            flex-flow: column nowrap; padding: 20px;
+            border: 1px solid #ccc; border-radius: 20px;
+            position: fixed; right: 50px; bottom: 160px;
+        }
+        #chat_container #chat_message{
+            height: 1000px; background: #f5f5f5; border-radius: 10px;
+            padding: 20px; display: flex; flex-flow: column nowrap; /* 내려감 */
+            justify-content: flex-end; overflow-y: scroll; overflow-x: hidden;
+            align-items: flex-start; justify-content: flex-start;
+        }
+        #chat_container #chat_message .message{
+            background: steelblue; border-radius: 5px; 
+            padding: 5px 10px; flex-flow: column nowrap;
+            color: #fff; margin-bottom: 10px; 
+        } 
+        #chat_container #user_input {
+            display: flex; /* flex-flow: row nowrap; */ justify-content: space-between;
+
+        }
+        #chat_container #user_input input[name=user_text]{
+            width: calc(100% - 60px); border:0; outline: none;
+        }
+        #chat_container #user_input #chat_btn {
+            background: green; color: #fff; border: 0;
+            width: 60px; height: 50px; 
+        }
+        
+        /* js */
+        .design_none {
+            display: none;
+            background: violet;
+        }
+        .design_block {
+            display: block;
+            background: turquoise;
+        }
+        .hide {display: none !important;}
+        .show {animation: chatShow 0.5s both;}
+        
+        @keyframes chatShow {
+            0%{transform: translateY(10px); opacity:0;}
+            100%{transform: translateY(0px); opacity:1;}
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="chat_bot">
+        <button type="button" id="robot"><img src="./images/robot.png" alt=""></button>
+        <span>AI 상담</span>
+    </div>
+    <!-- chat_bot 클릭 시 채팅화면 -->
+    <div id="chat_container">
+        <div id="chat_message">
+            <!-- <div class="message">:나는 학생이야</div> -->
+        </div> <!-- 채팅한거 보이는 화면  -->
+        <div id="user_input">
+            <input type="text" name="user_text" placeholder="메시지를 입력하세요">
+            <button type="button" id="chat_btn">전송</button>
+        </div> <!-- 입력하는 프롬프트 창 -->
+    </div>
+    <script src="./script/chat_api.js"></script>
+</body>
+</html>

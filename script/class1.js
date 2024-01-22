@@ -22,7 +22,7 @@ console.log(li, btn, onoff)
 // inline style 스타일로 적용되는 css 명령어 활용 태그 내부에 적용  
 // ★★ <태그안에 스타일로 직접 적용된게 인라인 스타일> 
 li[0].style.backgroundColor = "green"
-// 불편한점 우선순위가 가장 높아 다른 css 충돌없이 우선적용할 수 있으나 
+// 불편한점 우선순위가 가장 높아 다른 css 충돌없이 우선적용할 수 있으showhide나 
 // ★★(배우는 이유) css 속성이 여러개라면 하나 하나 개별 명령을 해야해서 작성이 불편하고 효율이 안좋다.
 li[0].style.borderTop = "2px solid red"
 li[0].style.color = "white"
