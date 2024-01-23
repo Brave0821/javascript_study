@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>jquery1</title>
+    <!-- 제이쿼리 cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style></style>
+</head>
+<body>
+    <h1>title</h1>
+    <p class="contents">contents</p>
+    <p id="address">address</p>
+    <button type="button" id="btn">click</button>
+    <script>
+
+        // 제이쿼리는 js의 dom 요소를 쉬게 사용할 수 있도록 만들어진 라이브러리 언어이다.
+        //js의 dom에 관련한 속성 메서드(함수) 등이 제이쿼리에서 쉽게 사용할 수 있도록 문법적으로 변경되었기에 때문에 제이쿼리 변수를 사용하려면 속성, 메서드도 제이쿼리용으롷 사용해야한다.
+        const h1Tag = $("h1")
+        const content = $(".contents")
+        const address = $("#address")
+        const btn =  $("#btn")
+        console.log(h1Tag)
+        console.log(content)
+
+        // 제이쿼리 문법 
+        h1Tag.css("color","darkgreen")
+
+        /* h1Tag.get(0).style.color = "green" */
+        //js 사용하고 싶은경우 get 붙여서 강제로.
+        h1Tag.hide() //===== dom.stylr.display랑 같은 것
+        btn.on("click",function(){
+    /*         h1Tag.show()
+            h1Tag.css("display", "flex") */
+            // h1Tag.fadeIn(2000)
+      /*       h1Tag.fadeToggle(2000) */
+    //   h1Tag.slideDown()
+      h1Tag.slideToggle()
+        }) 
+        content.animate({
+            opacity:"0.5",
+            color : "#ff0"
+        },1000)
+
+        $('#address').css("background-color","#ff0");
+
+
+    </script>
+</body>
+</html>
