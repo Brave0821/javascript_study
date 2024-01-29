@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>scroll-1</title>
+    <style>
+        .bg{
+            height: 800px; width: 100%; font-size: 10rem; color: #fff;
+            background-size: cover; background-position: center;
+        }       
+        .bg1{background: url(https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8JUVDJTk4JUE0JUVCJUExJTlDJUVCJTlEJUJDfGVufDB8fDB8fHww);}
+        .bg2{background: url(https://images.unsplash.com/photo-1610989432929-9769f3cf8006?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fCVFQyU5OCVBNCVFQiVBMSU5QyVFQiU5RCVCQ3xlbnwwfHwwfHx8MA%3D%3D);}
+        .bg3{background: url(https://images.unsplash.com/photo-1517928260182-5688aead3066?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fCVFQyU5OCVBNCVFQiVBMSU5QyVFQiU5RCVCQ3xlbnwwfHwwfHx8MA%3D%3D);}
+        .bg4{background: url(https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8JUVDJTk4JUE0JUVCJUExJTlDJUVCJTlEJUJDfGVufDB8fDB8fHww);}
+
+        .design1{
+            font-weight: 800; color: blue !important;
+            transform: scale(1.2) translateX(100px);
+            animation-delay: 5s;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>scrollTrigger-javascript plugin</h1>
+    <dl>
+        <dt>스크롤 트리거란?</dt>
+        <dd>javascript window.scroll, offsetTop, getBoudingClientRect 등의
+            스크롤 함수를 이용한 동적 애니메이션을 쉽게 만들 수 있게 제작된 자바스크립트 플러그인 종류 중 하나이다.
+        </dd>
+        <dd>사용하기 위해서는 관련 cdn을 반드시 연결하고 이용해야한다.</dd>
+    </dl>
+    <div class="bg bg1"><h2>1</h2></div>
+    <div class="bg bg2"><h2>2</h2></div>
+    <div class="bg bg3"><h2>3</h2></div>
+    <div class="bg bg4"><h2>4</h2></div>
+    <!-- <div class="bg bg5">1</div> -->
+    <!-- 붙여넣기  https://gsap.com/docs/v3/Installation
+    스크롤 트리거 CDN(필수연결)
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // scrollTrigger 기본문법
+        // gsap.to('적용대상', {scrollTrigger: "뷰포트 대상(보이는 영역)",애니메이션 속성:값, 속성:})
+        // gsap.to(".bg2 h2 ",{
+        //     scrollTrigger:".bg2",
+        //     duration:2,
+        //     x:300,
+        //     y:100,
+        //     opacity:0.5,
+        //     scale:0.9,
+        //     rotate: -25,
+        // })
+
+        // gsap.to(".bg3 h3",{
+        //     scrollTrigger:".bg3",
+        //     duration:2,
+        //     x:300,
+        //     y:500,
+        //     opacity:0.5,
+        //     scale:0.9,
+        //     rotate: -25,
+        // })
+        // scrollTrigger 기본문법2. 시작과 끝 설정 
+        // gsap.fromTo("적용대상,{from 시작속성:값},{To끝속:값}")
+
+   /*      gsap.fromTo("bg2 h2",{
+            opaciti:0,
+            x:-100,
+        },{
+            scro
+        }) */
+
+        //scrollTrigger 기본문법 3
+        /* 
+            ScrollTrigger.create({trigger:"대상", 속성:값, 속성:값,})
+        */
+
+        ScrollTrigger.create({
+            trigger:".bg2 h2",
+            duration:1,
+          /*   opacity:0.5, */
+            start:"0 30%", /* 이 지점을 지나칠때 밑에 함수를 실행해라 */
+            markers:true,
+            onEnter:()=>bg_h2[1].classList.add("design1")
+        })
+
+
+        const bg_h2 = document.querySelectorAll(".bg h2")
+        console.log(bg_h2)
+        
+       /*  for(let i of bg_h2){
+            gsap.to(i,{
+                scrollTrigger:i.parentNode,
+                duration:1,
+                delay:0.5,
+                opacity:0.5,
+                x:300
+            })
+        } */
+    //     for(let i of bg_h2){
+    //     gsap.fromTo(i,{
+    //         opacity:0
+    //     },{
+    //         scrollTrigger:i.parentNode,
+    //         duration:2,
+    //         opacity:1.5
+    //     })
+    // }
+
+    </script>
+</body>
+
+</html>

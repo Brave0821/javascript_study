@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>반얀트리 해운대 부산</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/scroll-2.css">
+</head>
+<style>
+    @keyframes opacity {
+        0%{opacity: 0; transform: scale(1.2);}
+        100%{opacity: 1; transform: scale(1);}
+    }
+    @keyframes bg {
+        0%{background-size: 220%;}
+        100%{background-size: 200%;}
+    }
+    .txt {animation: opacity 2s ease both;}
+    .txt_top_opacity {animation: top_opacity 2s ease both;}
+    .bg_scale {animation: bg 2s ease 0.5 both;}
+</style>
+<body>
+    <div class="wrap">
+  
+        <main>
+            <div class="title1">
+                <header>
+                    <div class="top">
+                        <div class="top_left">
+                            <img src="./scrollTrigger/images/logo_w.png" alt="#"><a href=""></a></img>
+                        </div>
+                        <div class="top_right">
+                            <a href="#">MENU</a>
+                        </div>
+                    </div>
+                </header>
+                <h1>BANYAN TREE HAEUNDAE BUSAN</h1>
+            </div>
+            <div class="title2">
+                <h1>THE BEST SANCTUARY FOR THE SENSES</h1>
+                <span>최상의 모든 조건, 반얀트리를 빛내는 브랜드 컬렉션, 그 중에서도 반약트리(Banyan Tree)는
+                    <br>
+                    명실상부한 럭셔리 호스피탈리티의 최상급 브랜드입니다.
+                    <br>
+                    전세계의 가장 아름답고 장엄한 자연 속에서 누리는 지역 고유의 경험.
+                    <br>
+                    최고의 휴양을 선사하는 반얀트리를 만나보십시오.
+                </span>
+            </div>
+            <div class="title3">
+                <h1>BANYAN TREE HAEUNDAE</h1>
+                <span>부산의 아름다운 오시리아, 그 곳 해변과 한 걸음.
+                    <br>
+                    귀하께 2025년 반얀트리 해운대 부산의 탄생 소식을 전합니다.
+                    <br>
+                    세계 곳곳에서 경험하던 반약트리의 휴식, 그 이상을 이제, 부산에서도 만나실 수 있습니다.</span>
+            </div>
+            <div class="title4">
+                <h1>A HOME IN THE PERFECT WORLD</h1>
+                <span>반얀트리는 22개 국가에 48개의 호텔과 리조트, 64개의 스파, 골프 코스 및 레지던스를 운영하는 글로벌 기업입니다.
+                    <br>
+                    완벽한 안식처를 향한 멈추지 않는 반얀트리의 노력그것은 이미, 국제적 권위를 가진 2700여 개 이상의
+                    <br>
+                    수상 경력이 증명하고 있습니다. 반얀트리 해운대 부산과 함께 세계 곳곳 이름 난 비경 속의 반얀트리를 만나십시오.
+                    <br>
+                    지상 최고의 휴식을 선사하겠습니다.</span>
+            </div>
+        </main>
+        <footer>
+            <div class="btm_container">
+                <div class="left_btm">
+                    <img src="./scrollTrigger/images/footer_logo.jpg" alt="">
+                </div>
+                <div class="right_btm">
+                    <span>COPYRIGHT © 2022 BANYAN TREE HAENDAEVUSAN. ALL RIGHTS RESERVED.</span>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const bg = document.querySelectorAll(".bg")
+        const h1 = document.querySelectorAll(".bg h1")
+        const p = document.querySelectorAll(".bg p")
+/* for 안사용해도 길어도 트리거 사용해도 괜찮음 */
+        for(let i of bg){
+            ScrollTrigger.create({
+                trigger:i,
+                onEnter:()=>i.classList.add("bg_scale")
+            })
+        }
+        for(let i of h1){
+            ScrollTrigger.create({
+                trigger:i, 
+                onEnter:()=>i.classList.add("txt")
+            })
+        }
+        for(let i of p){
+            ScrollTrigger.create({
+                trigger:i, /* display:0.5, */
+                onEnter:()=>i.classList.add("txt_top_opacity")
+            })
+        }
+    </script>
+</body>
+
+</html>

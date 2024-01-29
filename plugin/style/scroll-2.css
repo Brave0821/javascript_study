@@ -1,0 +1,78 @@
+.wrap {max-width: 1900; margin: 0 auto; }
+.wrap header {}
+.wrap header .top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.wrap header .top .top_left {}
+.wrap header .top .top_left img {
+
+}
+.wrap header .top .top_right {}
+.wrap header .top .top_right a {
+    color: #fff;
+}/* 메뉴바 */
+/*  */
+.wrap main{}
+.wrap main .title1{
+    background: url(/plugin/scrollTrigger/images/main_bg_new2.jpg);
+    height: 100vh;   padding: 20px;
+ /*    animation: title1 1s ; */
+    
+}
+.wrap main .title1 h1{
+    color: #fff; text-align: center; font-size: 40px;
+    padding-top:300px ;
+}
+/*  */
+.wrap main .title2 {
+    background: url(/plugin/scrollTrigger/images/main_con2_bg.jpg);
+    height: 100vh;
+    /* position: fixed; top:0; left: 0;
+    width: 100%; */
+}
+.wrap main .title2 h1 {
+    color: #fff; text-align: left; font-size: 40px;
+    padding: 10px;
+}
+.wrap main .title2 span {
+    color: #fff;
+}
+/*  */
+.wrap main .title3 {
+    background: url(/plugin/scrollTrigger/images/main_con3_bg.jpg);
+    height: 100vh;
+}
+.wrap main .title3 h1 {
+    color: #fff; text-align: left; font-size: 40px;
+    padding: 10px;
+}
+.wrap main .title3 span {
+    color: #fff;
+}
+/*  */
+.wrap main .title4 {
+    background: url(/plugin/scrollTrigger/images/main_con5_bg-.jpg);
+    height: 100vh;
+}
+.wrap main .title4 h1 {
+    color: #fff; text-align: left; font-size: 40px;
+    padding: 10px;
+}
+.wrap main .title4 span {
+    color: #fff;
+}
+
+/* main 끝 */
+
+.wrap footer {
+    background: #000;
+    padding-top: 35px; padding-bottom: 35px;
+}
+.wrap footer .btm_container {
+    display: flex; justify-content: space-around;}
+.wrap footer .btm_container .left_btm {}
+.wrap footer .btm_container .left_btm img {} /* 하단 로고 */
+.wrap footer .btm_container .right_btm {}
+.wrap footer .btm_container .right_btm span {}
