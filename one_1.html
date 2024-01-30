@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>one-1</title>
+    <style>
+        *{
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+        .wrap{
+            height: 100vh; /* 이렇게 하면 4번 밑으로 스크롤이 안내려감 */
+            position: relative; top:0; /* 초기값 설정 */ 
+            /*top: 50vh; 50vh 줬는데 내려가는 이유 - > 양수값이니까 
+            그럼 1- >4 방향으로 보려면 어떻게? 음수를 줌으로써 1 절반만큼 화면 위로 올려서 휠을 내린 것 처럼 컨테이너가 보이게 하는 것 */
+            transition: all 0.3s; /* 부드럽게 내려간다. */
+        }/* 1) */
+        .container {
+            height: 100vh; /* 각각 높이 증가. */
+            font-size: 5rem; text-align: center;
+        }
+        .container h1 {transition: all 1s;}
+        .container .num3 {transition: all 1s;}
+        .container:nth-child(1) {background-color: teal;}
+        .container:nth-child(2) {background-color:bisque;}
+        .container:nth-child(3) {background-color:steelblue;}
+        .container:nth-child(4) {background-color:seagreen;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">1</div>
+        <div class="container"><h1>2</h1></div>
+        <div class="container"><h1 class="num3">3</h1></div>
+        <div class="container"><h1>4</h1></div>
+    </div>
+    <script>
+
+        const wrap = document.querySelector(".wrap")
+        const container = document.querySelectorAll(".container")
+        let page = 0
+        /* 2개 이상이니까 all */
+        console.log(wrap, container)
+
+        /*마우스 휠 내릴때. */
+        window.addEventListener("wheel", (e)=>{
+            e.preventDefault() /* 새로고침 막기  스크롤 움직일때 이전 스크롤이 끝나지 않으면 */
+            console.log("wheel 성공")
+            console.log(e.deltaY)
+            if(e.deltaY > 0){ page++ }
+            if(e.deltaY < 0) { page-- }
+            if(page > container.length -1){
+                page = container.length -1 
+            } // 여기 page가 4보다 커지지 않도록 추가설정
+            // container.length - 1
+
+            /* 반대로 스크롤을 위로 올릴때 page는 -- page */
+            /* wrap.style.top = "100vh"
+            이제 아래로 내리면 + 위로 올리면 - 따로 따로 인식해서 값 출력되는걸 확인 vh값 기준은 아래가 - 위가 +
+            */
+            if(page < 0){page = 0} // 감소값 제한
+            wrap.style.top = `${page*-100}vh`
+            console.log(`${page*-100}vh`)
+
+            // 스크롤 애니메이션 동작 추가 작성위치 
+            for(let i of container){
+                if(i.offsetTop >= container[1].offsetTop){ // container[1] > a[0]이 offsetTop   window.scrollTo({left:0, top:bg[2].offsetTop})
+                    // 2번째 컨테이너의 첫번째 자식h1의 글자 색 변경하기
+                    container[1].children[0].style.color = "#fff"
+                }
+                //
+                if(i.offsetTop >= container[2].offsetTop){
+                    container[2].children[0].style.color = "#f02"
+                }
+            }
+
+
+        }, {passive:false}) // 이전 스크롤 기다리지 않기  vh단위로 했기 때문에 웹 브라우저 화면 높이를 줄여도 그만큼 자동인식
+
+        /* window.wheel 이벤트를 사용했을 때는 추가 scroll이벤트를 작성할 수 없다.
+        스크롤 애니메이션을 하고 싶으면 wh
+        */
+        
+        
+        
+        /* 4번보다 내려가면 안됨 page가 0보다 크면 계속 ++ 증가하기 때문에 
+        그럼 어떻게? 4번보다 커지지 않으려면 4
+        */
+        
+
+
+        // deltaY 는 몇을 기준으로 음수와 양수가 나눠질까? = 0 0보다 크면? 0보다 작으면? 이걸 기준으로 if 문 작성
+
+        /* deltaY가 스크롤을 아래로 내려가는걸로 인식하는건 음수 */
+
+        // 마우스휠 이벤트라면 해당 이벤트가 지행중일때 정보는 매개변수 이름 e=event 
+        /* deltaY = 세로 스크롤 양 반환하는 마우스 이벤트 속성 
+        
+        아래로 내려갈때는 양수 +100 
+        위로 올라갈때는 음수 -100
+        이거 이따가 중요한 포인트로 다시 나옴 ★★
+        
+        이걸 이용해서  델타 와이가 양수일때는 마우스휠을 내리고 있다는 뜻 
+        컨테이너를 1 -> 4 방향으로 움직이는거고 
+        델타 와이가 음수일때는 마우스 휠을 올리고 있단 뜻이기 때문에 컨테이너를 4 -> 1로 움직인다는 뜻이 됨 
+
+
+        컨테이너를 움직이려면 wrap에다가 1)
+        */
+    </script>
+</body>
+</html>

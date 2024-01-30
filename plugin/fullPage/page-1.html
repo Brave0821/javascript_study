@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>page-1</title>
+    <link rel="stylesheet" href="./jquery.fullPage.css">
+    <style>
+        .wrap{}
+        .wrap .container {}
+        .wrap .container:nth-child(1) {background: teal;}
+        .wrap .container:nth-child(2) {background: tan;}
+        .wrap .container:nth-child(3) {height: 500px; background:slateblue !important;}
+        .wrap .container:nth-child(4) {background:silver}
+        nav {position: fixed; left: 50px; top:50px; z-index: 999;}
+        nav a {}
+        /* 키프레임 */
+        .bg {animation: bg 2s ease both}
+        @keyframes bg {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(200px);}
+        }
+        </style>
+</head>
+<body>
+    <nav>
+        <a href="#a">a</a>
+        <a href="#b">b</a>
+        <a href="#c">c</a>
+        <a href="#d">d</a>
+    </nav>
+    <div class="wrap">
+        <div class="container section s1">1</div>
+        <div class="container section s2">2</div>
+        <div class="container section s3 fp-auto-heinjt">3</div>
+        <div class="container section s4">4</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./jquery.fullPage.js"></script>
+    <script>
+        $(".wrap").fullpage({
+            //속성 : 값, 속성:값,
+            scrollBar:true,// 스크롤바 표시하기
+            scrollingSpeed:1000, // 스크롤바 전환속도 (기본값 1000)
+            navigation:true, // 우측 내비게이션 표시하기 (기본값 false)
+            navigationTooltips:["아무말","제목","title","가나다"],
+            //내비게이션에 마우스 올리면 제목 표시 
+            showActiveTooltip:true,// 자동으로 제목 표시(기본값 false)
+            menu: "nav",
+            anchors:["a","b","c","d"], // 메뉴a #이름과 일치시킨 이름작성
+            /* <a href = "#a"> 샵 뒤에 a 와 anchors ["a"] 일치해야함! 이름 자유
+                여기까지가 기본 fullpage의 속성이고 만약 여기서 스크롤 내릴 때 단순 페이지만 내려가는게 아니라 등장 애니메이션이 나오게 하고 싶으면 제이쿼리 함수가 추가돼야한다. 여기서만 살짝 난이도 상승 - > 
+                */
+               // 스크롤 애니메이션 등장이 필요한 경우 
+               // 제이쿼리는 퐈살표 함수가 불가능 하기 때문에 모두 function씀
+               // 매개변수 index, nextIndex, direction
+            /*       onLeave:function(index, nextIndex,direction){
+
+                console.log(index, nextIndex, direction)// 확인
+                if(index == 1){ // 인덱스가 1과 같으면 인덱스1은 두번째 section 뜻 
+                    console.log(true)
+                    $(".s2").css("background-color","skyblue")
+                    $(".s2").get(0).style.border = "5px solid black" // js css
+                } 
+                if(index == 2){
+                    $(".s3").get(0).classList.add("bg")
+                } else {
+                    $(".s3").get(0).classList.remove("bg")
+                }   
+            } */
+            // anchors 명칭과 함께하는  fullpage 위치 인식 함수 
+            // 현재 anchors 명칭은 abcd 
+            afterLoad:function(anchor, index){ // 매개변수명칭은 자유지정
+                console.log(anchor, index) // 확인
+                if(anchor == "b"){ // 앵커의 위치가 b와 같으면
+                    $(".s2").get(0).classList.add("bg")
+                } else {
+                    $(".s2").get(0).classList.remove("bg")
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- 제이쿼리가 아니라 js 쓰려면 
+
+$(제이쿼리 대상).style.top= "50px" - > 이건 불가능! 제이쿼리에 자바스크립트 style를 섰으니까 
+$(제이쿼리 대상).get(0).style.top = "50px" - > 이건 가능
+get(index)라는 메서드가 제이쿼리와 js를 연결해주는 다리 역할이라고 보면 됨.
+
+
+AFTERlOAD 를 쓰려면 반드시 함께 anchots 이름과 연동하기 때문에 필수!
+
+-->
