@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>data</title>
+</head>
+<body>
+    <h1>data.JSON 데이터 가져오기</h1>
+    <script>
+        async function showData(){
+            let a = await fetch("./data.json")/* 다 기다리고 a 변수에 대입 */
+            let b = await a.json()
+            console.log(a)
+            console.log(b)
+            /* 비동기 함수만들기 더 빠르게 보여주기 위해 */
+        async function datas(){
+            console.log("이름 :", b.name)
+            console.log("나이 :", b.age)
+            console.log("취미 :", b.hobby.join(", "))
+            console.log("국가/도시 :", b.address.city)
+            console.log("우편번호 :", b.address.postcode)
+        }
+        datas()
+        }
+        showData()
+    </script>
+</body>
+</html>

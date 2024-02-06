@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"content="">
+    <meta name="description"content="">
+    <meta name="keywords"content="">
+    <title>javascript개념 + 타이머</title>
+</head>
+<body>
+    <h1>자바스크립트의 동작 이해</h1>
+    <dl>
+        <dt>stack</dt>
+        <dd>스택이란 실행내용을 담고 있는 자료구조</dd>
+        <dd>싱글쓰레드로 동작하며 함수 호출을 관리 한다.</dd>
+        <dd>동기적&절차적으로 함수의 내용을 스택에서 처리하고 처리한 내용은 스택에서 제거한다.</dd>
+        <dt>Heap</dt>
+        <!-- 스택에서 어떤 함수를  -->
+        <dd>자료저장공간(변수,객체,배열)</dd>
+        <!-- 대기소같은? 대기선수들이  -->
+        <dt>Que</dt>
+        <dd>비동기 작업을 일시적으로 저장하는 장소</dd>
+        <dd>비동기 호출이 일어났을 떄 동기 순서를 무시하고 Stack에 들어가서 처리된다.</dd>
+    </dl>
+    <script>
+        // stack 이해하기 
+    /* function func1(x,y){
+        return x*y
+    }
+    function func2(x){
+        let s = func1(x, x);
+        console.log(s)
+    }
+    func2(5) */
+
+    // 비동기 q 활용1. 콜백함수 
+    // 특정 작업이 완료될때 까지 기다리지 않고 다음 코드를 실행하는 함수
+    // 네트워크 요청, 파일 읽기, 타이머, 이벤트 등
+    // ★ 비동기 처리 => 콜백함수, Promise, ECMA6, async/await
+    
+    //콜백함수란?
+    // 함수의 매개변수로 전달되어 필요할 때 호출되는 함수개념
+    /* 
+        콜백은 콜백에서 콜백 쌓아서 부르는게 가능하기 때문에 코드가 자칫
+        복잡해질 수 있어서 콜백헬(callback hell)이란 별명을 가지고 있다.
+
+    */
+      /*   function func1(call){
+            setTimeout(()=>{
+                console.log("A")
+            },1000)
+            setTimeout(()=>{
+                console.log("C")
+            },500)
+            call()
+        }
+        function func2(){
+            console.log("B")
+        }
+        func1(()=>{func2()}) */ /* 1 */ 
+        //callback function func1에 call 보낸다.
+        
+
+    // 비동기 Que 활용2. 프로미즈(promise) ES6
+        // 내가 우선한 작업부터 json , db , api 코드를 수행하는 js
+        //  대기 (pending)- > 불러 올 때 까지 대기 
+        //  이행(fulfilled) - > 붕어빵 완성 - > then(제한없이 사용 가능) 
+        //  실패(1번) (rejected) 프로미즈의 3개념 -> 붕어빵이 타버림. - < 다시 대기 - > catch
+
+        // 프로미즈는 비동기 작업에 성공과 실패를 나타내는 객체이다.
+    //     function func1(){
+    //         return new Promise((a,b) =>{/* 성공과 실패를 구분 */
+    //             setTimeout(()=>{
+    //                 console.log("A")
+    //                 a() /* 매개변수에 함수 넣는게 콜백함수 */
+    //             }, 2000)
+    //         })
+    //     }
+    //     function func2(){  /* 파 */
+    //         console.log("B")
+    //     }
+    //     func1() 
+    //         .then(()=>{func2()}) /* func1()
+    //         .then() - > 성공하면타임아웃 실행 */
+    //         .catch(error=>{
+    //             console.error("에러는 ", error.messsage)
+    //         })
+    // 
+    
+    
+    /* 비동기 Que3.활용 3 async, await */
+    
+    // 코드의 가독성과 유지보수성 향상에 도움을 주는 js 
+    // async 비동기 함수임을 선언한다  ex) asnc function 
+    // await 키워드 "promise" 완료될때까지 대기하는 대기상태 동안 일시정지 하게 만들어주는 유지보수 향상에 도움을 주는 js
+
+    // 대기 상태동안 await 안적을 시 프로미즈 대기상태동안 비동기가 처리될 준비가 됐는지 js가 계속확인하기 ㄸ문애 
+    // stack 작업의 속도가 떨어질ㅇ 수 있다. 그래서 잠시 일시정지를 await 시켜서 유지보수성을 향상시킨다.
+    
+    // async function func1(){ /* 이거 비동기다 */
+    //     return Promise.resolve(1);
+    // }
+    // func1()
+    //     .then(alert)
+    //     .catch(error=>{console.log("error", error.message)})
+        // .then(console.log)
+
+    /* 프로미즈가 이행해ㅛ */
+    
+        async function func1(){
+            let pro = new Promise((a)=>{
+                setTimeout(()=>{
+                    console.log("A")
+                },3000)
+            })
+            let result = await pro;
+        }
+        func1()
+
+/* 프로미즈 예시 */
+
+function pro1(){
+    return new Promise((a,b)=>{
+        
+        setTimeout(()=>{
+            console.log("테스트1")
+            a()
+        },5000)
+    })
+}
+
+function pro2(){
+    console.log("테스트2")
+}
+
+pro1()
+    .then(()=>{pro2()})
+    .then() 
+    .catch(error=>{
+        console.error("에러는",error.message)
+    })
+
+/* async 예제 */
+
+
+async function pro1(){
+    let pro = new Promise((a,b)=>{
+        setTimeout(()=>{
+            console.log("a")
+        },5000)
+        a()
+        b()
+    })
+    let result = await pro;
+}
+
+function pro2(){alert("b")}
+function pro3(){alert("c")}
+
+pro1()
+    .then(()=>{pro2()})
+    .then(()=>{pro3()})
+    .catch(error=>{
+        console.error("error:",error.message)
+    })
+
+
+
+
+        
+    /* 
+    
+    노랑 : pro result 
+
+    파랑 : func1()
+    await pro
+    Promise
+    setTimeout
+    
+    흰 : Promise, setTimeout, await pro
+    
+    */
+    </script>
+    <!-- 
+    <★노랑 Member Heap>
+    
+
+    <★Call Stack 파랑>
+        
+        js 모든 처리는 여기서 
+
+        func1 호출
+        console.log, call
+
+        1. func1(()=>{})
+        console.log("b")
+        
+        3.call()
+
+        4.setTimout console.log("a")
+
+    <★흰 Que
+    >
+        2.setTimeout 1초 q에 저장됨.
+
+        setTimeoutA , setTimeouC - > q에 들어갔다가 나중에 파랑 스택으로 이동. 
+
+        타이머와 콜백 함수가 같이 쓰이는 경우가 많다.
+    -->
+</body>
+</html>
+<!-- 
+        /* 비동기 함수
+            동기식의 절차를 무시 
+            로그인이면 다른 js 무시하고 버튼 js 부터 우선 
+
+            js 호출 스택은 싱글 쓰레드 1개이다.
+
+            js는 스택 (작업 실행 공간)이 하나인데 (single-threaded)이 1개이다.
+            single-threaded - > js가 한 작업식 처리해서 이거
+            ---------------------------------------------------------------
+
+            한번에 한 작업만 실행된다.
+            앞에 한 작업 stack가 끝나면 다음 stack 시작된다.
+
+------------------------------------------------------------------------------------
+
+            메모리 힙 - > 변수 배열 객체 등을 모아 두는 자료 저장공간  팥, 밀가루 재료 등등
+            let s,
+
+            콜 스택 실행 내용을 담고 있는 자료 구조 (1 - 10) 붕어빵 굽는 곳  작업
+            func2(5), func1(x, x);,console.log 한번에 하나 씩
+
+
+            큐 특정 조건이 충족되었을 때 스택으로 이동되는 임시 저장소 | 손님이 왔을 때 콜 스택에 작업된거 
+            
+            특정조건이 충족된다면 (사용자의 요청이 있을 때 마우스 클릭 등) - > 스택으로 이동 
+        */
+
+        스택 - > 비동기 - > 스택
+
+        /* 비동기 손님이 오면 작업스택에 하는 작업이 멈춰지고 비동기 실행 */
+
+
+
+
+ -->
+
+<!-- 
+    js는 작성된 코드를 한 줄 씩 순차적으로 실행한다. (동기식)
+
+    위 - > 아래로 순차적으로 실행하기 때문에 절차적 언어라고도 한다.(객체지향)
+
+    앞의 한 작업이 끝나야 다음으로 작업을 실행한다 (blocking)
+
+-->
