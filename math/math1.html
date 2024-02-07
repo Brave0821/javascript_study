@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>math-1</title>
+</head>
+
+<body>
+    <input type="text" name="txt" id="txt">
+    <input type="number" name="num" id="num">
+    <button type="button" id="btn">click</button>
+    <p class="result"></p>
+    <script src="./data.js"></script>
+    <script>
+        const txt = document.querySelector("#txt")
+        const num = document.querySelector("#num")
+        const btn = document.querySelector("#btn")
+        const result = document.querySelector(".result")
+        let min_result
+
+        btn.addEventListener("click", () => {
+            min_result = Math.min(data[0].price, data[1].price, data[2].price) // max로 하면 토마토
+
+            for (let i of data) {
+                if (i.price == min_result) {
+                    result.innerHTML = i.name + i.price + "원"
+                }
+            }
+
+
+            /* // min 작은 수 출력
+            txt.value = Math.min(1, 10 ,-100) //-100
+            num.value = Math.min(1,2,3,4,5) // 1 */
+
+            /*  //음수를 양수로 변경
+             txt.value = Math.abs(-1.5) //1.5
+             num.value = Math.abs(-10) // 10 */
+
+            /*  // 가까운 정수로 변환 5기준으로 5보다 작으면 작은 정수 5보다 크면 큰 정수로 
+             txt.value = Math.round(123.456) // 123
+             num.value = Math.round(1.6) // 2 */
+
+            /* // 반올림해서 올려줌
+            txt.value = Math.ceil(123.456)
+            num.value = Math.ceil(1.2) */
+
+            /* // 0~5 0~10 사이의 숫자가 나온다.
+            txt.value = Math.floor(Math.random()*5)
+            num.value = Math.floor(Math.random()*10)
+             */
+
+            /* // 정수로 반환 소수점을 버리고 0으로 괄호안에 있는걸 정수로 만듬.
+            txt.value = Math.floor(1.6)
+            num.value = Math.floor(0.1) */
+
+            /*  // 랜덤해서 숫자 나옴.
+             txt.value = Math.random()
+             num.value = Math.random()
+              */
+
+            /*  txt.value = Math.PI
+            num.value = Math.PI */
+
+        })
+    </script>
+</body>
+
+</html>
